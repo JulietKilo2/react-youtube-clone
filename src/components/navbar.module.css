@@ -1,0 +1,39 @@
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+}
+
+.logo {
+  color: red;
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.input {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.searchBtn {
+  font-size: 20px;
+  padding: 2px 20px;
+}

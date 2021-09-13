@@ -11,13 +11,19 @@ export default function Navbar({ handleSubmit }) {
     searchEntryRef.current.value = "";
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={() => refreshPage()}>
           <i className="fab fa-youtube"></i>
         </div>
-        <span className={styles.title}>YouTube</span>
+        <span className={styles.title} onClick={() => refreshPage()}>
+          YouTube
+        </span>
         <form className={styles.formContainer} onSubmit={(e) => onSearch(e)}>
           <input className={styles.input} type="text" ref={searchEntryRef} />
           <button className={styles.searchBtn}>

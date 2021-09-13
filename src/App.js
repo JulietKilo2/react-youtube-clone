@@ -19,13 +19,23 @@ function App() {
       .then((response) => response.json())
       .then((result) => setVideos(result.items))
       .catch((error) => console.log("error", error));
-    // 네트워크 요청
-    // API 받아와서 videos에 데이터 저장
-    // 저장 후 Display 컴포넌트에 데이터 전달
   }, []);
 
+  useEffect(() => {
+    if (searchEntry !== null) {
+      const apiKey = process.env.REACT_APP_YOUTUBE_KEY;
+      fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchEntry}&key=${apiKey}`
+      )
+        .then((response) => response.json())
+        .then((result) => setVideos(result.items))
+        .catch((error) => console.log("error", error));
+    }
+    return;
+  }, [searchEntry]);
+
   return (
-    <div className="App">
+    <div className="app">
       <Navbar handleSubmit={handleSubmit} />
       <Display videos={videos} />
     </div>

@@ -4,39 +4,11 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px auto 0;
-  gap: 8px;
 }
 
-.card {
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 40%;
-  padding: 6.5px;
-  display: flex;
-  transition: all ease-in-out 200ms;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: scale(1.025);
-}
-
-.img {
-  width: 50%;
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  padding-left: 10px;
-}
-
-.videoTitle {
-  font-weight: bold;
-}
-
-.videoAuthor {
-  opacity: 0.75;
+@media screen and (max-width: 1360px) {
+  .container {
+    width: 95%;
+    flex-direction: column;
+  }
 }

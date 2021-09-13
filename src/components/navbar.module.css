@@ -9,6 +9,16 @@
   padding: 10px 0;
 }
 
+@media screen and (max-width: 1360px) {
+  .container {
+    width: 90%;
+    flex-direction: column;
+  }
+  .wrapper {
+    width: 100%;
+  }
+}
+
 .wrapper {
   width: 60%;
   display: flex;
@@ -23,20 +33,24 @@
 .logo {
   color: red;
   font-size: 30px;
-  margin: 0 10px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .title {
   font-weight: bold;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .input {
+  width: 100%;
+  min-width: 50%;
   font-size: 24px;
   margin-left: 10px;
 }
 
 .searchBtn {
   font-size: 20px;
-  padding: 2px 20px;
+  padding: 2px 15px;
 }

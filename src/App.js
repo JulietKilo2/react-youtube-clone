@@ -4,21 +4,30 @@ import Display from "./components/Display";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [searchEntry, setSearchEntry] = useState("");
+  const [searchEntry, setSearchEntry] = useState(null);
+  const [videos, setVideos] = useState(null);
 
   const handleSubmit = (value) => {
     setSearchEntry(value);
   };
 
   useEffect(() => {
-    console.log(searchEntry);
-  }, [searchEntry]);
+    const apiKey = process.env.REACT_APP_YOUTUBE_KEY;
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((result) => setVideos(result.items))
+      .catch((error) => console.log("error", error));
+    // 네트워크 요청
+    // API 받아와서 videos에 데이터 저장
+    // 저장 후 Display 컴포넌트에 데이터 전달
+  }, []);
 
   return (
     <div className="App">
       <Navbar handleSubmit={handleSubmit} />
-      {searchEntry}
-      <Display />
+      <Display videos={videos} />
     </div>
   );
 }
